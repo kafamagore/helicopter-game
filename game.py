@@ -143,8 +143,18 @@ def main_menu():
             title = message_to_screen("HELICOPTER (GODMODE)", font, 80, yellow)
         else:
             title = message_to_screen("HELICOPTER", font, 100, black)
-        controls_1 = message_to_screen("Use W-A-S-D to move, SPACE to shoot,", font, 30, black)
-        controls_2 = message_to_screen("SHIFT to drop bombs, and P to toggle pause", font, 30, black)
+        controls_0 = message_to_screen("^", font, 60, black)
+        controls_1 = message_to_screen("W", font, 60, black)
+#        controls_2 = message_to_screen("SHIFT to drop bombs, and P to toggle pause", font, 30, black)
+        controls_2 = message_to_screen("<A           D>", font, 60, black)
+        controls_3 = message_to_screen("S ", font, 60, black)
+        controls_4 = message_to_screen("SPACE = Fire", font, 60, black)
+        controls_5 = message_to_screen("SHIFT = Drop Bombs", font, 60, black)
+        controls_6 = message_to_screen("P = Pause", font, 60, black)
+
+
+        #controls_3 = message_to_screen("lorke lorke lorke biçiyiz", font, 60, black)
+
         if selected == "play":
             play = message_to_screen("PLAY", font, 75, white)
         else:
@@ -155,17 +165,30 @@ def main_menu():
             game_quit = message_to_screen("QUIT", font, 75, black)
 
         title_rect = title.get_rect()
+        controls_0_rect = controls_0.get_rect()
         controls_1_rect = controls_1.get_rect()
         controls_2_rect = controls_2.get_rect()
+        controls_3_rect = controls_3.get_rect()
+        controls_4_rect = controls_4.get_rect()
+        controls_5_rect = controls_5.get_rect()
+        controls_6_rect = controls_6.get_rect()
+
+
         play_rect = play.get_rect()
         quit_rect = game_quit.get_rect()
 
         # drawing text
         game_display.blit(title, (display_width/2 - (title_rect[2]/2), 40))
-        game_display.blit(controls_1, (display_width/2 - (controls_1_rect[2]/2), 120))
-        game_display.blit(controls_2, (display_width/2 - (controls_2_rect[2]/2), 140))
-        game_display.blit(play, (display_width/2 - (play_rect[2]/2), 200))
-        game_display.blit(game_quit, (display_width/2 - (quit_rect[2]/2), 260))
+        game_display.blit(controls_0, (1*display_width/5 - (controls_0_rect[2]/2), 140))
+        game_display.blit(controls_1, (1*display_width/5 - (controls_1_rect[2]/2), 170))
+        game_display.blit(controls_2, (1*display_width/5 - (controls_2_rect[2]/2), 190))
+        game_display.blit(controls_3, (1*display_width/5 - (controls_3_rect[2]/2), 230))
+        game_display.blit(controls_4, (227*display_width/1000 - (controls_4_rect[2]/2), 330))
+        game_display.blit(controls_5, (2*display_width/6 - (controls_5_rect[2]/2), 365))
+        game_display.blit(controls_6, (8*display_width/10 - (controls_6_rect[2]/2), 450))
+
+        game_display.blit(play, (4*display_width/6 - (play_rect[2]/2), 170))
+        game_display.blit(game_quit, (4*display_width/6 - (quit_rect[2]/2), 230))
         # drawing ocean
         pygame.draw.rect(game_display, blue, (0, 500, 800, 100))
 
