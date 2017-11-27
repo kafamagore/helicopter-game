@@ -60,6 +60,7 @@ cloud_y = random.randint(0, 400)
 # enemy helicopter variables
 enemy_heli = enemy_heli.EnemyHeli(-100, display_height/2-40)
 enemy_heli_alive = False
+speed2 = True
 
 # boat variables
 boat = boat.Boat(-110, 430)
@@ -225,7 +226,8 @@ def game_loop():
     global highscore_file
     global highscore_int
     global score
-
+    global speed2
+    global FPS
     global cloud_x
     global cloud_y
 
@@ -244,8 +246,12 @@ def game_loop():
     while not game_exit:
 
         # level 1
+        if score > 4000:
+            FPS = 70
         if score > 2000:
             enemy_heli.init()
+        if score > 2000:
+            speed2 = False
         if score > 3000:
           boat.init()
 

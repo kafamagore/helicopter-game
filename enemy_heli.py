@@ -39,6 +39,7 @@ class EnemyHeli(object):
         self.y = y
 
     def movement(self):
+
         if self.x > 600:
             self.x -= 10
         else:
