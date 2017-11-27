@@ -142,7 +142,7 @@ def main_menu():
             title = message_to_screen("HELICOPTER (GODMODE)", font, 80, yellow)
         else:
             title = message_to_screen("HELICOPTER", font, 100, black)
-        controls_1 = message_to_screen("use WASD to move, SPACE to shoot,", font, 30, black)
+        controls_1 = message_to_screen("Use W-A-S-D to move, SPACE to shoot,", font, 30, black)
         controls_2 = message_to_screen("SHIFT to drop bombs, and P to toggle pause", font, 30, black)
         if selected == "play":
             play = message_to_screen("PLAY", font, 75, white)
@@ -243,9 +243,14 @@ def game_loop():
 
     while not game_exit:
 
+        # level 1
+        if score > 1000 and score < 3000:
+            enemy_heli.init()
+
         while game_over:
 
             for event in pygame.event.get():
+
                 if event.type == pygame.QUIT:
                     if score > highscore_int:
                         highscore_file = open('highscore.dat', "w")
@@ -386,6 +391,7 @@ def game_loop():
             if not player.wreck_start:
                 cloud_x -= 5
 
+        # drawing components
         # drawing player
         game_display.blit(player.current, (player.x, player.y))
 
@@ -400,8 +406,8 @@ def game_loop():
 
         # enabling movement and animations
         player.player_init()
-        enemy_heli.init()
-        boat.init()
+        # enemy_heli.init()
+        # boat.init()
 
         # rendering bullets
         if not player.wreck_start and not player.wrecked:
