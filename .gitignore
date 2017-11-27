@@ -1,2 +1,4 @@
 virenv
-__pyache__
+__pyache__/
+.idea/
+*.pyc

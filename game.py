@@ -49,7 +49,7 @@ moving = True
 godmode = False
 
 # score variables
-score = 0
+score = 900 #changed for tests. [default = 0]
 highscore_file = open('highscore.dat', "r")
 highscore_int = int(highscore_file.read())
 
@@ -208,7 +208,7 @@ def pause():
                     paused = False
 
 
-# create a game loop
+ #create a game loop
 def game_loop():
 
     global spaceship_x
@@ -244,9 +244,10 @@ def game_loop():
     while not game_exit:
 
         # level 1
-        if score > 1000 and score < 3000:
+        if score > 1000:
             enemy_heli.init()
-
+        if score > 6000:
+          boat.init()
         while game_over:
 
             for event in pygame.event.get():
@@ -441,7 +442,7 @@ def game_loop():
                     enemy_heli.bullets.remove(del_bullet)
 
         # rendering boat bullets
-        if not player.wreck_start and not player.wrecked and not game_over:
+        if not player.wreck_start and not player.wrecked and not game_over and not score < 6000:
             for draw_bullet in boat.bullets:
                 pygame.draw.rect(game_display, gray, (draw_bullet[0]+40, draw_bullet[1]+30, 20, 20))
             for move_bullet in range(len(boat.bullets)):
