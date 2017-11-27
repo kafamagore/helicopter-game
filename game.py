@@ -49,7 +49,7 @@ moving = True
 godmode = False
 
 # score variables
-score = 900 #changed for tests. [default = 0]
+score = 3000 #changed for tests. [default = 0]
 highscore_file = open('highscore.dat', "r")
 highscore_int = int(highscore_file.read())
 
@@ -244,10 +244,11 @@ def game_loop():
     while not game_exit:
 
         # level 1
-        if score > 1000:
+        if score > 2000:
             enemy_heli.init()
-        if score > 6000:
+        if score > 3000:
           boat.init()
+
         while game_over:
 
             for event in pygame.event.get():
@@ -442,7 +443,7 @@ def game_loop():
                     enemy_heli.bullets.remove(del_bullet)
 
         # rendering boat bullets
-        if not player.wreck_start and not player.wrecked and not game_over and not score < 6000:
+        if not player.wreck_start and not player.wrecked and not game_over and not score < 3000:
             for draw_bullet in boat.bullets:
                 pygame.draw.rect(game_display, gray, (draw_bullet[0]+40, draw_bullet[1]+30, 20, 20))
             for move_bullet in range(len(boat.bullets)):
@@ -479,7 +480,7 @@ def game_loop():
 
         # spawn spaceship randomly
         spaceship_spawn_num = random.randint(0, 100)
-        if spaceship_spawn_num == 50 and not spaceship_alive and score > 450:
+        if spaceship_spawn_num == 50 and not spaceship_alive and score > 1000:
             warning = True
 
         # show warning before spaceship spawning
