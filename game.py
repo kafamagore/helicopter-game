@@ -671,8 +671,18 @@ def game_loop():
             if not player.wreck_start:
                 balloon_x -= 7
 
-        # draw score
+        # draw score and level
         game_display.blit(message_to_screen("SCORE: {0}".format(score), font, 50, black), (10, 10))
+        if score < 1000:
+            game_display.blit(message_to_screen("LEVEL: {0}".format(1), font, 50, black), (10, 10))
+        if score > 1000 and score < 2000:
+            game_display.blit(message_to_screen("SCORE: {0}".format(2), font, 50, black), (10, 10))
+        if score > 2000 and score < 3000:
+            game_display.blit(message_to_screen("SCORE: {0}".format(3), font, 50, black), (10, 10))
+        if score > 3000 and score < 4000:
+            game_display.blit(message_to_screen("SCORE: {0}".format(4), font, 50, black), (10, 10))
+        if score > 4000:
+            game_display.blit(message_to_screen("SCORE: {0}".format(5), font, 50, black), (10, 10))
 
         # draw high score
         if score < highscore_int:
