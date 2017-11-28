@@ -1,7 +1,7 @@
 import pygame
 
-helicopter_1 = pygame.image.load('sprites/helicopter_1.png')
-helicopter_2 = pygame.image.load('sprites/helicopter_2.png')
+helicopter_1 = pygame.image.load('sprites/helicopter_1.gif')
+helicopter_2 = pygame.image.load('sprites/helicopter_2.gif')
 helicopter_crash_1 = pygame.image.load('sprites/helicopter_crash_1.png')
 helicopter_crash_2 = pygame.image.load('sprites/helicopter_crash_2.png')
 helicopter_crash_3 = pygame.image.load('sprites/helicopter_crash_3.png')

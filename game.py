@@ -676,21 +676,21 @@ def game_loop():
         game_display.blit(message_to_screen("SCORE: {0}".format(score), font, 50, black), (10, 10))
 
         if score < 1000:
-            if score == 0:
+            if 0 <= score < 100:
                 start_time = time.time()
                 if int(time.time() - start_time) <= 3:
                     game_display.blit(message_to_screen("LEVEL: {0}".format(1), font, 50, black), (280, 70))
 
-        if score == 1000:
+        if 1000 <= score < 1100:
             game_display.blit(message_to_screen("LEVEL: {0}".format(2), font, 50, black), (280, 70))
 
-        if score == 2000 :
+        if 2000 <= score <  2100 :
             game_display.blit(message_to_screen("LEVEL: {0}".format(3), font, 50, black), (280, 70))
 
-        if score == 3000 :
+        if 3000 <= score <  3100 :
             game_display.blit(message_to_screen("LEVEL: {0}".format(4), font, 50, black), (280, 70))
 
-        if score == 4000:
+        if 4000 <= score < 4100 :
             game_display.blit(message_to_screen("LEVEL: {0}".format(5), font, 50, black), (280, 70))
 
         # draw high score
