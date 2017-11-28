@@ -267,7 +267,8 @@ def game_loop():
     game_over_selected = "play again"
 
     while not game_exit:
-
+        if score < 4000:
+            FPS = 30
         if score > 4000:
             FPS = 40
         if score > 5500:
