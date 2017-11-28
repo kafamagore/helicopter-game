@@ -4,6 +4,7 @@ import enemy_heli
 import boat
 import sprites
 import random
+import time
 
 # initialize pygame
 pygame.mixer.pre_init(44100, -16, 1, 512)
@@ -49,7 +50,7 @@ moving = True
 godmode = False
 
 # score variables
-score = 0 #changed for tests. [default = 0]
+score = 900 #changed for tests. [default = 0]
 highscore_file = open('highscore.dat', "r")
 highscore_int = int(highscore_file.read())
 
@@ -673,14 +674,24 @@ def game_loop():
 
         # draw score and level
         game_display.blit(message_to_screen("SCORE: {0}".format(score), font, 50, black), (10, 10))
+
         if score < 1000:
-            game_display.blit(message_to_screen("LEVEL: {0}".format(1), font, 50, black), (10, 10))
-        if score > 1000 and score < 2000:
-            game_display.blit(message_to_screen("SCORE: {0}".format(2), font, 50, black), (10, 10))
+            if score == 0:
+                start_time = time.time()
+                if int(time.time() - start_time) <= 3:
+                    game_display.blit(message_to_screen("LEVEL: {0}".format(1), font, 50, black), (10, 10))
+
+        if score >= 1000 and score < 2000:
+            start_time = time.time()
+            if int(time.time() - start_time) <= 3:
+                game_display.blit(message_to_screen("SCORE: {0}".format(2), font, 50, black), (10, 10))
+
         if score > 2000 and score < 3000:
             game_display.blit(message_to_screen("SCORE: {0}".format(3), font, 50, black), (10, 10))
+
         if score > 3000 and score < 4000:
             game_display.blit(message_to_screen("SCORE: {0}".format(4), font, 50, black), (10, 10))
+
         if score > 4000:
             game_display.blit(message_to_screen("SCORE: {0}".format(5), font, 50, black), (10, 10))
 
