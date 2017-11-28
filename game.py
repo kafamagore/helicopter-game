@@ -49,7 +49,7 @@ moving = True
 godmode = False
 
 # score variables
-score = 3800 #changed for tests. [default = 0]
+score = 0 #changed for tests. [default = 0]
 highscore_file = open('highscore.dat', "r")
 highscore_int = int(highscore_file.read())
 
@@ -270,11 +270,11 @@ def game_loop():
         if score < 4000:
             FPS = 30
         if score > 4000:
-            FPS = 40
+            FPS = 35
         if score > 5500:
-            FPS = 45
+            FPS = 40
         if score > 7000:
-            FPS = 50
+            FPS = 45
         if score > 2000:
             enemy_heli.init()
         if score > 2000:
