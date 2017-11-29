@@ -314,11 +314,11 @@ def game_loop():
 
                             balloon_x = 800
 
-                            enemy_heli.x = -100
+                            enemy_heli.x = -300
                             enemy_heli_alive = False
                             enemy_heli.bullets = []
 
-                            boat.x = -110
+                            boat.x = -210
                             boat_alive = False
                             boat.bullets = []
 
