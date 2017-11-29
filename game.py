@@ -50,7 +50,7 @@ moving = True
 godmode = False
 
 # score variables
-score = 900 #changed for tests. [default = 0]
+score = 3900 #changed for tests. [default = 0]
 highscore_file = open('highscore.dat', "r")
 highscore_int = int(highscore_file.read())
 
@@ -59,12 +59,12 @@ cloud_x = 800
 cloud_y = random.randint(0, 400)
 
 # enemy helicopter variables
-enemy_heli = enemy_heli.EnemyHeli(-100, display_height/2-40)
+enemy_heli = enemy_heli.EnemyHeli(-500, display_height/2-40)
 enemy_heli_alive = False
 speed2 = True
 
 # boat variables
-boat = boat.Boat(-110, 430)
+boat = boat.Boat(-510, 430)
 boat_alive = False
 
 # spaceship variables
@@ -566,7 +566,7 @@ def game_loop():
                         pygame.mixer.Sound.play(explosion2)
                         score += 150
                         bullets.remove(hit_enemy_heli)
-                        enemy_heli.x = -100
+                        enemy_heli.x = -500
                         enemy_heli_alive = False
 
         # spaceship-player bullet/bomb collision detection
@@ -607,7 +607,7 @@ def game_loop():
                         bullets.remove(hit_boat)
                         score += 200
                         boat_alive = False
-                        boat.x = -110
+                        boat.x = -510
 
         for hit_boat in bombs:
             if boat.x < hit_boat[0]+55 < boat.x+110 or boat.x < hit_spaceship[0]+75 < boat.x+110:
