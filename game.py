@@ -88,6 +88,7 @@ bullets = []
 bombs = []
 
 # sounds
+theme_music = pygame.mixer.Sound('sounds/the_final_countdown.wav')
 shoot = pygame.mixer.Sound('sounds/shoot.wav')
 pop = pygame.mixer.Sound('sounds/pop.wav')
 bomb = pygame.mixer.Sound('sounds/bomb.wav')
@@ -268,6 +269,7 @@ def game_loop():
     game_over_selected = "play again"
 
     while not game_exit:
+        pygame.mixer.Sound.play(theme_music)
         if score < 4000:
             FPS = 30
         if score > 4000:
