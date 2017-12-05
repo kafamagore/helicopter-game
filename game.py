@@ -50,7 +50,7 @@ moving = True
 godmode = False
 
 # score variables
-score = 3900 #changed for tests. [default = 0]
+score = 0
 highscore_file = open('highscore.dat', "r")
 highscore_int = int(highscore_file.read())
 
@@ -88,7 +88,6 @@ bullets = []
 bombs = []
 
 # sounds
-theme_music = pygame.mixer.Sound('sounds/the_final_countdown.wav')
 shoot = pygame.mixer.Sound('sounds/shoot.wav')
 pop = pygame.mixer.Sound('sounds/pop.wav')
 bomb = pygame.mixer.Sound('sounds/bomb.wav')
@@ -147,15 +146,11 @@ def main_menu():
             title = message_to_screen("HELICOPTER", font, 100, black)
         controls_0 = message_to_screen("^", font, 60, black)
         controls_1 = message_to_screen("W", font, 60, black)
-#        controls_2 = message_to_screen("SHIFT to drop bombs, and P to toggle pause", font, 30, black)
         controls_2 = message_to_screen("<A           D>", font, 60, black)
         controls_3 = message_to_screen("S ", font, 60, black)
         controls_4 = message_to_screen("SPACE = Fire", font, 60, black)
         controls_5 = message_to_screen("SHIFT = Drop Bombs", font, 60, black)
         controls_6 = message_to_screen("P = Pause", font, 60, black)
-
-
-        #controls_3 = message_to_screen("lorke lorke lorke biçiyiz", font, 60, black)
 
         if selected == "play":
             play = message_to_screen("PLAY", font, 75, white)
@@ -269,7 +264,7 @@ def game_loop():
     game_over_selected = "play again"
 
     while not game_exit:
-        pygame.mixer.Sound.play(theme_music)
+
         if score < 4000:
             FPS = 30
         if score > 4000:
@@ -444,8 +439,6 @@ def game_loop():
 
         # enabling movement and animations
         player.player_init()
-        # enemy_heli.init()
-        # boat.init()
 
         # rendering bullets
         if not player.wreck_start and not player.wrecked:
@@ -686,13 +679,13 @@ def game_loop():
         if 1000 <= score < 1100:
             game_display.blit(message_to_screen("LEVEL: {0}".format(2), font, 50, black), (280, 70))
 
-        if 2000 <= score <  2100 :
+        if 2000 <= score < 2100:
             game_display.blit(message_to_screen("LEVEL: {0}".format(3), font, 50, black), (280, 70))
 
-        if 3000 <= score <  3100 :
+        if 3000 <= score < 3100:
             game_display.blit(message_to_screen("LEVEL: {0}".format(4), font, 50, black), (280, 70))
 
-        if 4000 <= score < 4100 :
+        if 4000 <= score < 4100:
             game_display.blit(message_to_screen("LEVEL: {0}".format(5), font, 50, black), (280, 70))
 
         # draw high score
